@@ -7,7 +7,7 @@ pwd = r'G:/GF/JL/sg/'
 # world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 # cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
 
-segments = gpd.read_file(pwd + '50_10_05.shp')
+segments = gpd.read_file(pwd + '40_10_05_new.shp')
 print(segments.head())
 print(segments.columns)
 
@@ -17,23 +17,23 @@ segments_centroid = segments
 segments_centroid['centroid'] = segments.centroid
 segments_centroid = segments_centroid.set_geometry('centroid')
 segments_centroid = segments_centroid.drop(columns='geometry')
-X = segments.centroid.x
-Y = segments.centroid.y
-segments_centroid['X'] = X
-segments_centroid['Y'] = Y
-segments_centroid['R'] = [int(a) for a in (2954424.452 - Y)]
-segments_centroid['C'] = [int(b) for b in (X - 541753.294)]
-print(segments_centroid.head())
-print(segments_centroid.columns)
-# segments_centroid.to_file(pwd + "50_10_05_centroid.shp")
-# print("Finish output !!")
-
-fig, ax = plt.subplots()
-ax.set_aspect('equal')
-segments.plot(ax=ax, color='white', edgecolor='c')
-segments_centroid.plot(ax=ax, marker='*', color='pink', markersize=5)
-# plt.show()
-plt.savefig("segment_and_centroid.png", dpi=300)
+# X = segments.centroid.x
+# Y = segments.centroid.y
+# segments_centroid['X'] = X
+# segments_centroid['Y'] = Y
+# segments_centroid['R'] = [int(a) for a in (2954424.452 - Y)]
+# segments_centroid['C'] = [int(b) for b in (X - 541753.294)]
+# print(segments_centroid.head())
+# print(segments_centroid.columns)
+segments_centroid.to_file(pwd + "40_10_05_centroid_new.shp")
+print("Finish output !!")
+#
+# fig, ax = plt.subplots()
+# ax.set_aspect('equal')
+# segments.plot(ax=ax, color='white', edgecolor='c')
+# segments_centroid.plot(ax=ax, marker='*', color='pink', markersize=5)
+# # plt.show()
+# plt.savefig("segment_and_centroid.png", dpi=300)
 
 
 # # No.1
@@ -98,8 +98,8 @@ plt.savefig("segment_and_centroid.png", dpi=300)
 #
 # plt.show()
 
-# fig, ax = plt.subplots()
-# ax.set_aspect('equal')
-# sg.plot(ax=ax, color='white', edgecolor='grey')
-# sg.centroid.plot(ax=ax, marker='*', color='red', markersize=5)
-# plt.show()
+fig, ax = plt.subplots()
+ax.set_aspect('equal')
+segments.plot(ax=ax, color='white', edgecolor='grey')
+segments_centroid.plot(ax=ax, marker='*', color='red', markersize=5)
+plt.show()
