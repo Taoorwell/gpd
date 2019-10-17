@@ -3,7 +3,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import numpy as np
-pwd = r'G:/GF/JL/sg/'
+pwd = r'H:/GF/JL/sg/'
 # world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 # cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
 
@@ -25,8 +25,8 @@ segments_centroid = segments_centroid.drop(columns='geometry')
 # segments_centroid['C'] = [int(b) for b in (X - 541753.294)]
 # print(segments_centroid.head())
 # print(segments_centroid.columns)
-segments_centroid.to_file(pwd + "40_10_05_centroid_new.shp")
-print("Finish output !!")
+# segments_centroid.to_file(pwd + "40_10_05_centroid_new.shp")
+# print("Finish output !!")
 #
 # fig, ax = plt.subplots()
 # ax.set_aspect('equal')
